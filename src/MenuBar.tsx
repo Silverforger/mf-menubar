@@ -1,4 +1,4 @@
-import 'tailwindcss/tailwind.css'
+import "tailwindcss/tailwind.css";
 
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +30,7 @@ const MenuBar: React.FC<MenuBarProps> = ({ routes }) => {
     useOnClickOutside(menuRef, () => setShowMenubar(false));
 
     return (
-        <div className="py-2 justify-between select-none">
+        <div className="py-2 justify-between select-none asdasd">
             <div
                 ref={menuRef}
                 className="relative w-[80px] h-[40px] bg-[#4F517D] text-white font-[500] rounded-[15px] flex items-center justify-center cursor-pointer"
@@ -39,8 +39,11 @@ const MenuBar: React.FC<MenuBarProps> = ({ routes }) => {
                 Menu
                 {showMenuBar && (
                     <div className="absolute top-[45px] left-[0] w-[150px] min-h-[200px] p-3 rounded-[15px] bg-[#4F517D]">
-                        {routes.map((route: Route) => (
-                            <div onClick={() => handleNavigate(route.path)}>
+                        {routes.map((route: Route, index: number) => (
+                            <div
+                                onClick={() => handleNavigate(route.path)}
+                                key={`${route.label.toLowerCase()}-${index}`}
+                            >
                                 {route.label}
                             </div>
                         ))}
