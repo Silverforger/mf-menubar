@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 const placeMenuBar = (node, routesProp, navigateProp) => {
     if (node === null || node === undefined || typeof node !== "object") return;
 
-    const root = createRoot(document.getElementById("container"));
+    const root = createRoot(node);
     root.render(
         <BrowserRouter>
             <MenuBar routes={routesProp} navigate={navigateProp} />
